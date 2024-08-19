@@ -46,7 +46,7 @@ llm = ChatOpenAI(model="gpt-3.5-turbo-0125", temperature=0)
 
 from langchain import hub
 # Get the prompt to use - you can modify this!
-prompt = hub.pull("hwchase17/openai-functions-agent")
+prompt = hub.pull("hwchase17/openai-functions-agent",api_key='place_your _api_here')# replace with your openai api key
 print(prompt.messages)
 
 from langchain.agents import create_openai_tools_agent
@@ -56,5 +56,5 @@ from langchain.agents import AgentExecutor
 agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
 print(agent_executor)
 
-print(agent_executor.invoke({"input": "Tell me about langsmith."}))
-print(agent_executor.invoke({"input": "what is artificial intelligence?"}))
+print(agent_executor.invoke({"input": "Tell me about langsmith."})) #you can give any query
+print(agent_executor.invoke({"input": "what is artificial intelligence?"})) #you can give any query
